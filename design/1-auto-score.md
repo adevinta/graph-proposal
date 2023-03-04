@@ -246,6 +246,41 @@ acceptable.
 
 ## Rationale
 
+### Manual/Automatic vs Subjective/Objective
+
+We initially thought on ROLFP as a "subjective score" because it considers
+aspects that are hard to evaluate without human input.
+Therefore, it would make sense to create an analogous "objective score" that
+only takes into consideration facts stored in systems like the Security Graph.
+This facts must be based on data that can be automatically gathered and
+evaluated.
+For instance, the network visibility of an AWS EC2 instance or the permissions
+of an AWS IAM role.
+
+However, it is also true that we can use subjective data, like the ROLFP, to
+automatically derive an score.
+For instance, the ROLFP could be automatically mapped into a priority score.
+
+This proposal approaches score classification from the perspective of manual
+and automatic scores.
+ROLFP would be an example of manual score because it requires human input to be
+generated.
+On the other side, the Blast Radius Score is an example of automatic score that
+can be automatically generated.
+
+The proposed approach, allows to use the `AutoScore` field to store automatic
+scores derived from manual scores.
+This way a modification in the ROLFP of an asset could trigger the update of a
+specific automatic score.
+This could even imply querying the Security Graph to merge multiple ROLFP
+scores together, potentially replacing the `Scope` functionality of the current
+scoring model.
+
+Finally, it would be the combination of all these automatic scores what is used
+to take actions.
+
+### Asset annotations
+
 We cannot know in advance which automatic scores will be assigned to assets.
 Therefore, we need to keep flexibility in the way we store them.
 
