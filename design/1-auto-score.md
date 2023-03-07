@@ -50,8 +50,8 @@ affected by a successful attack.
 Of course, there are other useful sources of information and many more
 interesting scores.
 
-The final solution must combine manual and automated scores in a single metric
-that Vulcan can use to take actions.
+The final solution must combine manual and automated scores so that Vulcan can
+make decisions.
 
 ## Proposal
 
@@ -278,6 +278,8 @@ scoring model.
 
 Finally, it would be the combination of all these automatic scores what is used
 to take actions.
+Although, this is out of the scope of this proposal and needs further
+investigation.
 
 ### Asset annotations
 
